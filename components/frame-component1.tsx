@@ -40,12 +40,13 @@ const FrameComponent1: NextPage<FrameComponent1Type> = ({ className = "" }) => {
                   </div>
                   <div className="rounded-17xl bg-dark-grey flex flex-row items-start justify-start p-1.5">
                   <Image
-  src="/background-2@2x.png" // Asegúrate de que esta imagen exista en la carpeta /public
+  src="/background-2@2x.png"
   className="absolute top-[calc(50%_-_200px)] left-[calc(50%_-_200px)] w-[400px] h-[400px]"
   width={400}
   height={400}
   alt="Decorative background"
 />
+
 
                   </div>
                 </button>
