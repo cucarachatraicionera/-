@@ -239,12 +239,7 @@ const FrameComponent: NextPage<FrameComponentType> = ({ className = "" }) => {
                     alt=""
                     src="/background-2@2x.png"
                   />
-                  <Image
-                    className="absolute top-[calc(50%_-_200px)] left-[calc(50%_-_200px)] w-[400px] h-[400px]"
-                    width={400}
-                    height={400}
-                    alt=""
-                  />
+                 
                 </div>
                 <div className="absolute top-[calc(50%_-_65px)] left-[calc(50%_-_69.5px)] flex flex-col items-center justify-start gap-2.5">
                   <div className="w-20 relative h-20 overflow-hidden shrink-0">
