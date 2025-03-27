@@ -50,13 +50,7 @@ const FrameComponent1: NextPage<FrameComponent1Type> = ({ className = "" }) => {
                     />
                     */}
                     {/* Imagen temporal para evitar error de compilación */}
-                    <Image
-                      src="https://via.placeholder.com/400"
-                      className="absolute top-[calc(50%_-_200px)] left-[calc(50%_-_200px)] w-[400px] h-[400px]"
-                      width={400}
-                      height={400}
-                      alt="Temporary placeholder"
-                    />
+                   
                   </div>
                 </button>
               </div>
