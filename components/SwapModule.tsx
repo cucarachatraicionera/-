@@ -5,6 +5,9 @@ import { useWallet } from "@solana/wallet-adapter-react";
 import { sendSol } from "../utils/solanaUtils";
 import { FaArrowsAltV } from "react-icons/fa";
 
+// 👇 Solución: tipamos el ícono correctamente para que sea JSX válido
+const ArrowIcon = FaArrowsAltV as React.FC<{ className?: string }>;
+
 const SwapModule = () => {
     const wallet = useWallet();
     const [isLoading, setIsLoading] = useState(false);
@@ -51,14 +54,14 @@ const SwapModule = () => {
                     <span className="text-4xl font-bold text-white">2,194</span>
                 </div>
                 <div className="flex items-center space-x-2 border border-cyan-400 rounded-full px-4 py-1">
-                    <div className="w-5 h-5 bg-cyan-400 rounded-full" /> {/* placeholder imagen */}
+                    <div className="w-5 h-5 bg-cyan-400 rounded-full" />
                     <span className="text-cyan-400 font-medium">SOL</span>
                 </div>
             </div>
 
             {/* SWITCH ICON */}
             <div className="absolute left-1/2 top-[215px] -translate-x-1/2 z-10 bg-cyan-400 p-2 rounded-full shadow-lg">
-                <FaArrowsAltV className="text-black text-lg" />
+                <ArrowIcon className="text-black text-lg" />
             </div>
 
             {/* TO */}
@@ -68,7 +71,7 @@ const SwapModule = () => {
                     <span className="text-4xl font-bold text-white">12,466</span>
                 </div>
                 <div className="flex items-center space-x-2 border border-cyan-400 rounded-full px-4 py-1">
-                    <div className="w-5 h-5 bg-pink-400 rounded-full" /> {/* placeholder imagen */}
+                    <div className="w-5 h-5 bg-pink-400 rounded-full" />
                     <span className="text-cyan-400 font-medium">Pinky Promise</span>
                 </div>
             </div>
@@ -95,7 +98,7 @@ const SwapModule = () => {
                 className="w-full mt-4 py-3 rounded-2xl bg-cyan-400 text-black font-bold flex items-center justify-center gap-2 hover:bg-cyan-300 transition"
             >
                 {isLoading ? "Enviando..." : "Swap"}
-                <FaArrowsAltV className="text-xl rotate-90" />
+                <ArrowIcon className="text-xl rotate-90" />
             </button>
 
             {/* Feedback */}
