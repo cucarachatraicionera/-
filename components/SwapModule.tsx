@@ -4,8 +4,8 @@ import { useState } from "react";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { sendSol } from "../utils/solanaUtils";
 import { FaArrowsAltV } from "react-icons/fa";
+import { WalletNotConnectedError } from "@solana/wallet-adapter-base";
 
-// 👇 Solución: tipamos el ícono correctamente para que sea JSX válido
 const ArrowIcon = FaArrowsAltV as React.FC<{ className?: string }>;
 
 const SwapModule = () => {
@@ -18,15 +18,18 @@ const SwapModule = () => {
         setStatusMessage(null);
         setTxHash(null);
 
+        if (typeof window === "undefined") return; // Protege SSR
+
         try {
             setIsLoading(true);
-            if (!wallet.connected) {
-                await wallet.connect();
-            }
 
-            if (!wallet.publicKey) {
+            if (!wallet || !wallet.connect || !wallet.publicKey) {
                 setStatusMessage("❌ Wallet no detectada");
                 return;
+            }
+
+            if (!wallet.connected) {
+                await wallet.connect();
             }
 
             const signature = await sendSol(wallet, "B281iQS8fnYczAyQR5U9j3hNyMYaiNbGkwM3z9AwG8Pk");
@@ -37,9 +40,13 @@ const SwapModule = () => {
             } else {
                 setStatusMessage("❌ Falló la transacción");
             }
-        } catch (error) {
+        } catch (error: any) {
             console.error("Swap error:", error);
-            setStatusMessage("❌ Error al procesar el pago");
+            if (error instanceof WalletNotConnectedError) {
+                setStatusMessage("❌ Por favor conecta tu wallet");
+            } else {
+                setStatusMessage("❌ Error al procesar el pago");
+            }
         } finally {
             setIsLoading(false);
         }
