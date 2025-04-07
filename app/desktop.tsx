@@ -14,7 +14,6 @@ const Desktop: NextPage = () => {
   return (
     <div className="w-full h-[7480px] relative [background:linear-gradient(180deg,_#a2025c_18.1%,_#1b8bad_49.1%,_#363637_99.6%)] overflow-hidden opacity-[0.99] leading-[normal] tracking-[normal] text-left text-base text-miscellaneous-floating-tab-pill-fill font-montserrat mq1125:h-auto mq1125:min-h-[7480]">
       <Why />
-      <FrameComponent1 />
       <Tokenomics />
       <Image
         className="absolute top-[calc(50%_-_387px)] left-[829px] rounded-21xl w-[536px] h-[648px] object-cover"
