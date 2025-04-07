@@ -3,10 +3,11 @@
 import { useWallet } from "@solana/wallet-adapter-react";
 import { sendSol } from "../utils/solanaUtils";
 import { useState } from "react";
+import { IoMdSwap } from "react-icons/io";
 
 type SwapButtonProps = {
-    recipient: string; // ✅ Wallet destino
-    amount: number;    // ✅ Monto en SOL
+    recipient: string;
+    amount: number;
 };
 
 const SwapButton = ({ recipient, amount }: SwapButtonProps) => {
@@ -21,58 +22,45 @@ const SwapButton = ({ recipient, amount }: SwapButtonProps) => {
 
         try {
             setIsLoading(true);
-
-            // ✅ Auto-conectar si no está conectada
-            if (!wallet.connected) {
-                await wallet.connect();
-            }
-
+            if (!wallet.connected) await wallet.connect();
             if (!wallet.publicKey) {
-                setStatusMessage("❌ Wallet no detectada.");
+                setStatusMessage("❌ Wallet no detectada");
                 return;
             }
-
-            // ✅ Enviar SOL usando tu util
             const signature = await sendSol(wallet, recipient);
-
             if (signature) {
                 setTxHash(signature);
-                setStatusMessage("✅ Enviado correctamente.");
+                setStatusMessage("✅ Pago realizado correctamente");
             } else {
-                setStatusMessage("❌ Falló la transacción.");
+                setStatusMessage("❌ Falló la transacción");
             }
-
         } catch (error) {
-            console.error("Error:", error);
-            setStatusMessage("❌ Error durante el swap.");
+            console.error("Swap error:", error);
+            setStatusMessage("❌ Error durante el swap");
         } finally {
             setIsLoading(false);
         }
     };
 
     return (
-        <>
+        <div className="w-full">
             <button
                 onClick={handleSwap}
                 disabled={isLoading}
-                className="cursor-pointer [border:none] p-1 bg-deepskyblue self-stretch rounded-25xl flex flex-row items-center justify-center relative hover:bg-deepskyblue/80 transition"
+                className="w-full flex justify-center items-center gap-2 bg-[#64cdff] text-black font-bold py-3 rounded-full hover:bg-[#4dbde6] transition duration-300 shadow-md"
             >
-                <div className="flex flex-row items-center justify-center py-2.5 px-4 z-[0]">
-                    <div className="relative text-base leading-[16px] font-montserrat text-dark-grey text-left">
-                        {isLoading ? "Enviando..." : "Swap"}
-                    </div>
-                </div>
+                {isLoading ? "Enviando..." : "Swap"}
+                <IoMdSwap className="text-xl" />
             </button>
-
             {statusMessage && (
-                <div className="mt-2 text-center text-light-gray">{statusMessage}</div>
+                <p className="text-sm mt-2 text-white text-center">{statusMessage}</p>
             )}
             {txHash && (
-                <div className="mt-2 text-center text-deepskyblue">
-                    Tx Hash: {txHash}
-                </div>
+                <p className="text-sm text-cyan-300 mt-1 text-center break-words">
+                    Tx: {txHash}
+                </p>
             )}
-        </>
+        </div>
     );
 };
 
