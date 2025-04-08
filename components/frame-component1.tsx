@@ -4,12 +4,16 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import { FaArrowDown } from "react-icons/fa";
 import SwapButton from "../components/SwapButton";
+import { useState } from "react";
 
 export type FrameComponent1Type = {
     className?: string;
 };
 
 const FrameComponent1: NextPage<FrameComponent1Type> = ({ className = "" }) => {
+    const [fromAmount, setFromAmount] = useState("2,194");
+    const [toAmount, setToAmount] = useState("12,466");
+
     return (
         <section className={`w-full flex justify-center items-center p-4 ${className}`}>
             <div className="w-[400px] md:w-[480px] rounded-3xl bg-gradient-to-br from-[#1e1e1e] to-[#292929] p-6 shadow-xl border border-[#5ee7ff3a] text-white space-y-4">
@@ -17,7 +21,12 @@ const FrameComponent1: NextPage<FrameComponent1Type> = ({ className = "" }) => {
                 <div className="bg-black rounded-xl p-4 flex justify-between items-center">
                     <div>
                         <p className="text-sm text-white/50">from</p>
-                        <h2 className="text-3xl font-bold">2,194</h2>
+                        <input
+                            type="text"
+                            value={fromAmount}
+                            onChange={(e) => setFromAmount(e.target.value)}
+                            className="bg-transparent text-3xl font-bold outline-none text-white"
+                        />
                     </div>
                     <button className="flex items-center gap-2 border border-[#64cdff] rounded-full px-4 py-1">
                         <Image src="/solana.png" alt="SOL" width={20} height={20} />
@@ -36,7 +45,12 @@ const FrameComponent1: NextPage<FrameComponent1Type> = ({ className = "" }) => {
                 <div className="bg-black rounded-xl p-4 flex justify-between items-center">
                     <div>
                         <p className="text-sm text-white/50">to</p>
-                        <h2 className="text-3xl font-bold">12,466</h2>
+                        <input
+                            type="text"
+                            value={toAmount}
+                            onChange={(e) => setToAmount(e.target.value)}
+                            className="bg-transparent text-3xl font-bold outline-none text-white"
+                        />
                     </div>
                     <button className="flex items-center gap-2 border border-[#64cdff] rounded-full px-4 py-1">
                         <Image src="/chihuahua.png" alt="Pinky" width={20} height={20} />
