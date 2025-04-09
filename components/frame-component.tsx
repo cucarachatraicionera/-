@@ -11,23 +11,23 @@ export type FrameComponentType = {
 const FrameComponent: NextPage<FrameComponentType> = ({ className = "" }) => {
   return (
     <div
-      className={`self-stretch flex flex-row items-start justify-start py-0 pl-0 pr-1.5 box-border max-w-full text-left text-xl text-miscellaneous-floating-tab-pill-fill font-montserrat ${className}`}
+      className={`self-stretch flex flex-col lg:flex-row items-start justify-start py-0 pl-0 pr-1.5 box-border max-w-full text-left text-xl text-miscellaneous-floating-tab-pill-fill font-montserrat ${className}`}
     >
       <div className="flex-1 flex flex-col items-start justify-start gap-[33px] max-w-full">
-        <div className="flex flex-row items-center justify-center py-0 pl-0 pr-5 box-border max-w-full z-[3]">
-          <div className="h-[800px] rounded-21xl bg-black1 border-gray-800 border-solid border-[1px] box-border overflow-hidden flex flex-col items-start justify-center py-20 px-[79px] relative gap-10 mq750:h-auto">
+        <div className="flex flex-col lg:flex-row items-center justify-center py-0 pl-0 pr-5 box-border max-w-full z-[3]">
+          <div className="h-auto lg:h-[800px] rounded-21xl bg-black1 border-gray-800 border-solid border-[1px] box-border overflow-hidden flex flex-col items-start justify-center py-10 lg:py-20 px-6 lg:px-[79px] relative gap-6 lg:gap-10">
             <Image
-              className="w-[1200px] h-[1323.5px] absolute !m-[0] bottom-[-271px] left-[calc(50%_-_393px)] object-cover z-[0]"
+              className="w-full lg:w-[1200px] h-auto lg:h-[1323.5px] absolute !m-[0] bottom-[-271px] left-[calc(50%_-_393px)] object-cover z-[0]"
               width={1200}
               height={1324}
               alt=""
               src="/background-1@2x.png"
             />
             <div className="flex flex-col items-start justify-start z-[1]">
-              <b className="w-[510px] relative leading-[24px] inline-block opacity-[0.6] mq450:text-base mq450:leading-[19px]">
+              <b className="w-full lg:w-[510px] relative leading-[24px] inline-block opacity-[0.6] text-sm lg:text-base lg:leading-[19px]">
                 About Pink Promise
               </b>
-              <h1 className="m-0 w-[510px] relative text-49xl leading-[68px] font-medium font-[inherit] inline-block mq450:text-22xl mq450:leading-[41px] mq1025:text-35xl mq1025:leading-[54px]">
+              <h1 className="m-0 w-full lg:w-[510px] relative text-3xl lg:text-49xl leading-[40px] lg:leading-[68px] font-medium font-[inherit] inline-block">
                 <p className="m-0">Welcome to Pinky Promise,</p>
                 <p className="m-0">your token for</p>
                 <p className="m-0">a brighter</p>
@@ -35,14 +35,14 @@ const FrameComponent: NextPage<FrameComponentType> = ({ className = "" }) => {
               </h1>
             </div>
             <div className="flex flex-row items-start justify-center z-[2]">
-              <div className="w-[510px] relative tracking-[0.02em] leading-[32px] inline-block shrink-0 mq450:text-base mq450:leading-[26px]">
+              <div className="w-full lg:w-[510px] relative tracking-[0.02em] leading-[26px] lg:leading-[32px] text-sm lg:text-base inline-block shrink-0">
                 Join a community driven by trust and innovation
               </div>
             </div>
-            <div className="flex flex-row items-start justify-center gap-5 z-[3] mq750:flex-wrap">
-              <button className="cursor-pointer [border:none] p-1 bg-gainsboro rounded-25xl flex flex-row items-center justify-center [row-gap:20px] mq450:flex-wrap">
+            <div className="flex flex-col lg:flex-row items-start justify-center gap-3 lg:gap-5 z-[3]">
+              <button className="cursor-pointer [border:none] p-1 bg-gainsboro rounded-25xl flex flex-row items-center justify-center gap-2 lg:gap-5">
                 <div className="flex flex-row items-center justify-center py-2.5 px-4">
-                  <div className="w-[123px] relative text-base leading-[16px] font-montserrat text-dark-grey text-left inline-block shrink-0">
+                  <div className="w-[123px] relative text-sm lg:text-base leading-[16px] font-montserrat text-dark-grey text-left inline-block shrink-0">
                     0x532f...B142E4
                   </div>
                 </div>
@@ -65,7 +65,7 @@ const FrameComponent: NextPage<FrameComponentType> = ({ className = "" }) => {
               </button>
               <button className="cursor-pointer border-gainsboro border-solid border-[1px] py-0.5 px-[3px] bg-gainsboro rounded-25xl flex flex-row items-center justify-center">
                 <div className="flex flex-row items-center justify-center py-2.5 px-4">
-                  <div className="relative text-base leading-[16px] font-montserrat text-darkslategray text-left">
+                  <div className="relative text-sm lg:text-base leading-[16px] font-montserrat text-darkslategray text-left">
                     Get Started
                   </div>
                 </div>
@@ -82,7 +82,7 @@ const FrameComponent: NextPage<FrameComponentType> = ({ className = "" }) => {
             </div>
           </div>
         </div>
-        <div className="self-stretch rounded-21xl bg-gray-900 border-gray-800 border-solid border-[1px] box-border overflow-hidden flex flex-col items-start justify-start pt-[118px] px-[88px] pb-[132px] gap-[97px] max-w-full">
+        <div className="self-stretch rounded-21xl bg-gray-900 border-gray-800 border-solid border-[1px] box-border overflow-hidden flex flex-col items-start justify-start pt-[60px] lg:pt-[118px] px-6 lg:px-[88px] pb-[60px] lg:pb-[132px] gap-[40px] lg:gap-[97px] max-w-full">
           <div className="w-[1133px] flex flex-col items-start justify-start max-w-full">
             <b className="w-[510px] h-9 relative leading-[24px] inline-block shrink-0 opacity-[0.6] mq450:text-base mq450:leading-[19px]">
               {" "}
@@ -102,7 +102,7 @@ const FrameComponent: NextPage<FrameComponentType> = ({ className = "" }) => {
             </p>
           </h2>
         </div>
-        <div className="self-stretch rounded-21xl bg-black1 border-gray-800 border-solid border-[1px] box-border overflow-hidden flex flex-col items-end justify-start pt-[118px] px-[39px] pb-[53px] gap-[50px] max-w-full">
+        <div className="self-stretch rounded-21xl bg-black1 border-gray-800 border-solid border-[1px] box-border overflow-hidden flex flex-col items-end justify-start pt-[60px] lg:pt-[118px] px-6 lg:px-[39px] pb-[40px] lg:pb-[53px] gap-[30px] lg:gap-[50px] max-w-full">
           <div className="flex flex-row items-start justify-end py-0 px-[38px] box-border max-w-full">
             <div className="self-stretch flex flex-col items-start justify-start max-w-full">
               <b className="w-[510px] relative leading-[24px] inline-block opacity-[0.6] mq450:text-base mq450:leading-[19px]">
@@ -133,8 +133,8 @@ const FrameComponent: NextPage<FrameComponentType> = ({ className = "" }) => {
             />
           </div>
         </div>
-        <div className="self-stretch h-[769px] flex flex-row items-start justify-start py-0 pl-4 pr-2 box-border max-w-full">
-          <div className="self-stretch flex-1 flex flex-col items-start justify-center py-[120px] px-0 box-border gap-[50px] max-w-full">
+        <div className="self-stretch flex flex-col lg:flex-row items-start justify-start py-0 pl-4 pr-2 box-border max-w-full">
+          <div className="self-stretch flex-1 flex flex-col items-start justify-center py-[60px] lg:py-[120px] px-0 box-border gap-[30px] lg:gap-[50px] max-w-full">
             <div className="w-[784px] flex-1 flex flex-row items-center justify-between gap-0">
               <div className="w-[555px]" />
               <div className="flex flex-col items-start justify-start">
@@ -277,7 +277,7 @@ const FrameComponent: NextPage<FrameComponentType> = ({ className = "" }) => {
         </div>
       </div>
       <Image
-        className="w-[678px] relative rounded-29xl max-h-full object-cover max-w-full ml-[-683px]"
+        className="w-full lg:w-[678px] relative rounded-29xl max-h-full object-cover max-w-full lg:ml-[-683px]"
         loading="lazy"
         width={678}
         height={809}
